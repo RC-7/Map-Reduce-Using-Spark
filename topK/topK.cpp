@@ -6,7 +6,6 @@
 
 #include <fstream>
 #include <string>
-#include <iostream>
 
 #include "map_reduce.h"
 
@@ -123,13 +122,14 @@ class TopK : public MapReduceSort<TopK, passage, word, uint64_t, hash_container<
     }
 };
 
-void getStopWords(std::vector<std::string>& sWords) {
+void getStopWords(std::vector<std::string> &sWords)
+{
     std::ifstream file("data/stopWords.txt");
     std::string line;
     while (getline(file, line))
     {
         sWords.push_back(line);
-    }  
+    }
 }
 
 int main(int argc, char *argv[])
@@ -144,7 +144,6 @@ int main(int argc, char *argv[])
 
     std::vector<std::string> stopWords;
     getStopWords(stopWords);
-
 
     for (unsigned int i = 0; i < 3; ++i)
     {
@@ -170,7 +169,7 @@ int main(int argc, char *argv[])
         {
             unsigned int dispNum = dispNums[j];
 
-            printf("\nFinding the top %d most common words from %s \n", dispNum, fname);
+            printf("\nFinding the top %d most common words in %s \n", dispNum, fname);
 
             std::vector<TopK::keyval> output;
 
@@ -187,19 +186,22 @@ int main(int argc, char *argv[])
             uint64_t total = 0;
             for (size_t i = 0; i < num; i++)
             {
-                // printf("\n%d\n", stopWords.size());
                 std::string str = output[output.size() - 1 - i].key.data;
-                if(std::find(stopWords.begin(), stopWords.end(), str) == stopWords.end()) {
+                if (std::find(stopWords.begin(), stopWords.end(), str) == stopWords.end())
+                {
                     printf("%15s - %lu\n", output[output.size() - 1 - i].key.data, output[output.size() - 1 - i].val);
-                } else {
-                    // omit the result if it is a stop word 
-                    if(num+1 < output.size()) {
+                }
+                else
+                {
+                    // omit the result if it is a stop word
+                    if (num + 1 < output.size())
+                    {
                         num++;
                     }
                 }
             }
 
-            printf("The time taken to find the top %d words in %s took %f ms\n\n", dispNum, fname, (runTime / 1000L));
+            printf("\nThe time taken to find the top %d words in %s took %f ms\n\n\n", dispNum, fname, (runTime / 1000L));
         }
 
         free(fdata);
