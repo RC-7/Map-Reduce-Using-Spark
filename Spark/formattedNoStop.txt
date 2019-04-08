@@ -6,75 +6,67 @@ tinuviel dancing 4
 music pipe unseen, 5
 light stars hair, 6
 raiment glimmering. 7
-8
-beren came mountains cold, 9
-lost wandered leaves, 10
-elven-river rolled. 11
-walked along sorrowing. 12
-peered hemlock-leaves 13
-saw wonder flowers gold 14
-upon mantle sleeves, 15
-hair like shadow following. 16
-17
-enchantment healed weary feet 18
-hills doomed roam; 19
-forth hastened, strong fleet, 20
-grasped moonbeams glistening. 21
-woven woods elvenhome 22
-lightly fled dancing feet, 23
-left lonely still roam 24
-silent forest listening. 25
-26
-heard oft flying sound 27
-feet light linden-leaves, 28
-music welling underground, 29
-hidden hollows quavering. 30
-withered lay hemlock-sheaves, 31
-one one sighing sound 32
-whispering fell beechen leaves 33
-wintry woodland wavering. 34
-35
-sought ever, wandering far 36
-leaves years thickly strewn, 37
-light moon ray star 38
-frosty heavens shivering. 39
-mantle glinted moon, 40
-hill-top high far 41
-danced, feet strewn 42
-mist silver quivering. 43
-44
-winter passed, came again, 45
-song released sudden spring, 46
-like rising lark, falling rain, 47
-melting water bubbling. 48
-saw elven-flowers spring 49
-feet, healed 50
-longed dance sing 51
-upon grass untroubling. 52
-53
-fled, swift came. 54
-tinuviel! tinuviel! 55
-called elvish name; 56
-halted listening. 57
-one moment stood she, spell 58
-voice laid her: beren came, 59
-doom fell tinuviel 60
-arms lay glistening. 61
-62
-beren looked eyes 63
-within shadows hair, 64
-trembling starlight skies 65
-saw mirrored shimmering. 66
-tinuviel elven-fair, 67
-immortal maiden elven-wise, 68
-cast shadowy hair 69
-arms like silver glimmering. 70
-71
-long way fate bore, 72
-o'er stony mountains cold grey, 73
-halls iron darkling door, 74
-woods nightshade morrowless. 75
-sundering seas lay, 76
-yet last met more, 77
-long ago passed away 78
-forest singing sorrowless. 79
+beren came mountains cold, 8
+lost wandered leaves, 9
+elven-river rolled. 10
+walked along sorrowing. 11
+peered hemlock-leaves 12
+saw wonder flowers gold 13
+upon mantle sleeves, 14
+hair like shadow following. 15
+enchantment healed weary feet 16
+hills doomed roam; 17
+forth hastened, strong fleet, 18
+grasped moonbeams glistening. 19
+woven woods elvenhome 20
+lightly fled dancing feet, 21
+left lonely still roam 22
+silent forest listening. 23
+heard oft flying sound 24
+feet light linden-leaves, 25
+music welling underground, 26
+hidden hollows quavering. 27
+withered lay hemlock-sheaves, 28
+one one sighing sound 29
+whispering fell beechen leaves 30
+wintry woodland wavering. 31
+sought ever, wandering far 32
+leaves years thickly strewn, 33
+light moon ray star 34
+frosty heavens shivering. 35
+mantle glinted moon, 36
+hill-top high far 37
+danced, feet strewn 38
+mist silver quivering. 39
+winter passed, came again, 40
+song released sudden spring, 41
+like rising lark, falling rain, 42
+melting water bubbling. 43
+saw elven-flowers spring 44
+feet, healed 45
+longed dance sing 46
+upon grass untroubling. 47
+fled, swift came. 48
+tinuviel! tinuviel! 49
+called elvish name; 50
+halted listening. 51
+one moment stood she, spell 52
+voice laid her: beren came, 53
+doom fell tinuviel 54
+arms lay glistening. 55
+beren looked eyes 56
+within shadows hair, 57
+trembling starlight skies 58
+saw mirrored shimmering. 59
+tinuviel elven-fair, 60
+immortal maiden elven-wise, 61
+cast shadowy hair 62
+arms like silver glimmering. 63
+long way fate bore, 64
+o'er stony mountains cold grey, 65
+halls iron darkling door, 66
+woods nightshade morrowless. 67
+sundering seas lay, 68
+yet last met more, 69
+long ago passed away 70
+forest singing sorrowless. 71
