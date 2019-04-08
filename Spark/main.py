@@ -25,29 +25,13 @@ def linesToWordsFunc(line):
 def hailMary(word):
 	if word.isdigit():
 		ln.incr()
-		return("",0)
+		return("",0)								#try find a way to just get rid of this value entirely
 
 	return (word,[ln.access()])
 
 
-# def removeStopwordAddFormatting():
-# 	fin = open("/Users/TheBatComputer/Documents/DICS/ELEN4020A_Group6_Lab3/data/short.txt")
-# 	fout = open("formattedNoStop.txt","w")
-# 	currentLine=0
-# 	for line in fin:
-# 		for word in line.split():
-# 			if word.lower() in stopWords:
-# 				pass
-# 			else:
-# 				fout.write(" "+word.lower())
-# 		fout.write(str(currentLine)+ "\n")
-# 		currentLine=currentLine+1
-# 	fin.close()
-# 	fout.close()
-
-
 def removeStopwordAddFormatting():
-	fin = open("/Users/TheBatComputer/Documents/DICS/ELEN4020A_Group6_Lab3/data/short.txt")
+	fin = open("../data/short.txt")
 	fout = open("formattedNoStop.txt","w")
 	currentLine=0
 	for line in fin:
@@ -76,7 +60,7 @@ def removeStopwordAddFormatting():
 	fout.close()
 
 def removeStopword():
-	fin = open("/Users/TheBatComputer/Documents/DICS/ELEN4020A_Group6_Lab3/data/short.txt")
+	fin = open("../data/short.txt")
 	fout = open("noStop.txt","w")
 	for line in fin:
 		wordNo=0
@@ -115,11 +99,17 @@ mappedPairs = split.map(hailMary)
 
 reduceList = mappedPairs.reduceByKey(lambda a, b: a+b)
 
+print("-------------------------------------------------")
+print("Inverted index or words occuring")
+
 
 for x in reduceList.collect():
 
     print (x)
 # ------------------------------------------------------
+
+
+# --------------------- Top K -------------------------
 
 removeStopword()
 inFile = sparkContext.textFile("noStop.txt")
@@ -131,12 +121,32 @@ mappedPairsCount = split.map(lambda word: (word, 1))
 
 reduceListCount = mappedPairsCount.reduceByKey(lambda a, b: a+b)
 
-pls=reduceListCount.takeOrdered(20, key = lambda x: -x[1])
-print (pls)
+print("-------------------------------------------------")
+print("Top 20 occuring words")
 
-# for x in pls.collect():
+top20=reduceListCount.takeOrdered(20, key = lambda x: -x[1])      #20 is the K querry
+print (top20)
 
-#     print (x)
+print("-------------------------------------------------")
+print("Top 10 occuring words")
+
+top10=reduceListCount.takeOrdered(10, key = lambda x: -x[1])      #20 is the K querry
+print (top10)
+
+# ------------------------------------------------------
 
 
+
+# ------------------- Sort All -------------------------
+
+print("-------------------------------------------------")
+print("Most occuring words in Descending order")
+
+AllSorted = reduceListCount.sortBy(lambda a: a[1], ascending=False)
+
+for x in AllSorted.collect():
+
+    print (x)
+
+# ------------------------------------------------------
 
