@@ -33,29 +33,24 @@ def hailMary(word):
 
 def removeStopwordAddFormatting():
 	fin = open("/Users/TheBatComputer/Documents/DICS/ELEN4020A_Group6_Lab3/data/short.txt")
-	fout = open("temp.txt","w")
+	fout = open("formattedNoStop.txt","w")
 	currentLine=0
 	for line in fin:
 		for word in line.split():
-			if word in stopWords:
+			if word.lower() in stopWords:
 				pass
 			else:
-				fout.write(word + " ")
+				fout.write(word.lower() + " ")
 		fout.write(str(currentLine)+ "\n")
 		currentLine=currentLine+1
 	fin.close()
 	fout.close()
 				
 
-
-
-
-
-
 removeStopwordAddFormatting()
 
 sparkContext = pyspark.SparkContext()
-inFile = sparkContext.textFile("temp.txt")
+inFile = sparkContext.textFile("formattedNoStop.txt")
 lowerCase = inFile.map(lambda x: x.lower())
 
 split=lowerCase.flatMap(lambda line: line.split(" "))
@@ -68,5 +63,7 @@ reduceList = mappedPairs.reduceByKey(lambda a, b: a+b)
 
 for x in reduceList.collect():
 
-
     print (x)
+
+
+
