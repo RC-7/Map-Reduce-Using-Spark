@@ -1,3 +1,8 @@
+import pyspark
+import time
+from nltk.corpus import stopwords
+
+
 class lineNum:
 	def __init__(self):
 		self.number=0;
@@ -8,10 +13,6 @@ class lineNum:
 	def incr(self):
 		self.number=self.number+1
 
-
-import pyspark
-
-from nltk.corpus import stopwords
 stopWords = set(stopwords.words('english'))
 
 ln=lineNum()
@@ -22,7 +23,7 @@ def linesToWordsFunc(line):
     filtered = filter(lambda word: re.match(r'\w+', word), wordsList)
     return filtered
 
-def hailMary(word):
+def getLineNumber(word):
 	if word.isdigit():
 		ln.incr()
 		return("",0)								#try find a way to just get rid of this value entirely
@@ -90,18 +91,25 @@ removeStopwordAddFormatting()
 
 sparkContext = pyspark.SparkContext()
 inFile = sparkContext.textFile("formattedNoStop.txt")
+
+initial=time.time()
+
 lowerCase = inFile.map(lambda x: x.lower())
 
 split=lowerCase.flatMap(lambda line: line.split(" "))
 
-mappedPairs = split.map(hailMary)
+mappedPairs = split.map(getLineNumber)
 
 
 reduceList = mappedPairs.reduceByKey(lambda a, b: a+b)
 
-print("-------------------------------------------------")
-print("Inverted index or words occuring")
+final=time.time()
 
+
+
+print("-------------------------------------------------")
+print("Inverted index of words occuring")
+print("Time needed to complete the inverted index algorithm: "+str(final-initial))
 
 for x in reduceList.collect():
 
@@ -113,6 +121,9 @@ for x in reduceList.collect():
 
 removeStopword()
 inFile = sparkContext.textFile("noStop.txt")
+
+initial=time.time()
+
 lowerCase = inFile.map(lambda x: x.lower())
 
 split=lowerCase.flatMap(lambda line: line.split(" "))
@@ -120,6 +131,10 @@ split=lowerCase.flatMap(lambda line: line.split(" "))
 mappedPairsCount = split.map(lambda word: (word, 1))
 
 reduceListCount = mappedPairsCount.reduceByKey(lambda a, b: a+b)
+
+final=time.time()
+
+print("Time needed to complete the word count algorithm: "+str(final-initial))
 
 print("-------------------------------------------------")
 print("Top 20 occuring words")
